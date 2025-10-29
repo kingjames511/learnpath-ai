@@ -26,7 +26,7 @@ const SignUpPage = () => {
   const handleConfirm = async () => {
     setLoading(true);
     setError("");
-    const { data, error } = await signUp(email, password, {
+    const {  error } = await signUp(email, password, {
       full_name: fullName,
     });
     if (error) {
