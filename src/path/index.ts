@@ -3,6 +3,9 @@ landingpage : '/',
 dashbaord : '/dashboard',
 signUp :'/sign-up',
 signIn : '/sign-in',
-callback : '/auth/callback'
+callback : '/auth/callback',
+passwordReset : '/password-reset',
+ResetPassword: '/reset-pass-page',
+OnBoarding : '/onboarding'
 
 }

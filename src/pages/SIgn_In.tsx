@@ -21,9 +21,7 @@ const SignInPage = () => {
     const { error } = await signIn(email, password);
     if (error) {
       toast.error("oops something went wrong");
-      setError(
-        "opps something went wrong please double-check your email and password"
-      );
+      setError(error.message);
       setLoading(false);
     } else {
       toast.success("welcome back redirecting now");
@@ -105,7 +103,7 @@ const SignInPage = () => {
 
             <p className="text-sm text-purple-600 leading-relaxed">
               Forgotten Password ?
-              <a href="/sign-up" className="text-black underline">
+              <a href={paths.passwordReset} className="text-black underline">
                 Reset
               </a>{" "}
               Here

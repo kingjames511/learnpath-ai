@@ -1,27 +1,41 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Services/contextApi/AuthContext";
+import { paths } from "../path";
+import { supabase } from "../lib/supabase";
 
 export default function AuthCallback() {
   const navigate = useNavigate();
   const { user } = useAuth();
-
   useEffect(() => {
-    // Wait small for auth state to update
     const timer = setTimeout(() => {
       if (user) {
-        // User successfully authenticated!
         console.log("✅ User authenticated:", user.email);
-        navigate("/dashboard");
+        checkProfile();
       } else {
-        // Something went wrong
         console.log("❌ No user found, redirecting to login");
-        navigate("/login");
+        navigate(paths.signIn);
       }
     }, 1000);
 
     return () => clearTimeout(timer);
   }, [user, navigate]);
+
+  const checkProfile = async () => {
+    const { data: profile } = await supabase
+      .from("user_profiles")
+      .select("*")
+      .eq("user_id", user?.id)
+      .single();
+
+    setTimeout(() => {
+      if (!profile || !profile.interests || profile.interets.length == 0) {
+        navigate(paths.OnBoarding);
+      } else {
+        navigate(paths.dashbaord);
+      }
+    }, 2000);
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
