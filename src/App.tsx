@@ -15,21 +15,23 @@ export default function App() {
   return (
     <div>
       <Routes>
+        {/* Public Routes */}
         <Route path={paths.landingpage} element={<Home />} />
-        <Route
-          path={paths.dashbaord}
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
         <Route path={paths.signUp} element={<SignUpPage />} />
-        <Route path={paths.callback} element={<AuthCallback />} />
         <Route path={paths.signIn} element={<GlassmorphismLogin />} />
+        <Route path={paths.callback} element={<AuthCallback />} />
         <Route path={paths.passwordReset} element={<ForgotPassword />} />
         <Route path={paths.ResetPassword} element={<ResetPassword />} />
-        <Route path="/onboarding" element={<Onboarding />} />
+
+        {/* Protected Routes - All under one wrapper */}
+        <Route element={<ProtectedRoute />}>
+          <Route path={paths.dashbaord} element={<Dashboard />} />
+          <Route path="/onboarding" element={<Onboarding />} />
+          {/* <Route path="/profile" element={<Profile />} /> */}
+          {/* <Route path="/settings" element={<Settings />} /> */}
+        </Route>
+
+        {/* Fallback */}
         <Route path="*" element={<Home />} />
       </Routes>
 

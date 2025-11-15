@@ -1,58 +1,36 @@
 import { supabase } from "../src/Services/supabase";
-const HF_API_KEY = ''
+ const HF_API_KEY= import.meta.env.VITE_HF_API_KEY
 
+import { HfInference } from '@huggingface/inference'
 
-async function getEmbedding(text: string) {
+// Initialize the client with your API key
+const hf = new HfInference(HF_API_KEY)
+
+ export async function getEmbedding(text: string) {
   try {
     console.log('Calling Hugging Face API...')
 
-    const response = await fetch(
-      'https://router.huggingface.co/hf-inference/pipeline/feature-extraction/sentence-transformers/all-MiniLM-L6-v2',
-      {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${HF_API_KEY}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          inputs: text,
-          options: { wait_for_model: true }
-        })
-      }
-    )
+    // Use featureExtraction method - much simpler!
+    const embedding = await hf.featureExtraction({
+      model: 'sentence-transformers/all-MiniLM-L6-v2',
+      inputs: text ? text : 'react'
+    })
 
-    if (!response.ok) {
-      const errorText = await response.text()
-      console.error('HF API Error:', errorText)
-      return
-    }
+    console.log('📦 Response type:', typeof embedding)
+    console.log(`✅ Got embedding with ${embedding.length} dimensions`)
+    
+    return embedding
 
-    const result = await response.json()
-    console.log('📦 Response type:', typeof result)
-    console.log('📦 Response preview:', JSON.stringify(result).substring(0, 100) + '...')
-
-    if (Array.isArray(result)) {
-      if (Array.isArray(result[0])) {
-        console.log(`✅ Got embedding with ${result[0].length} dimensions`)
-        return result[0]
-      } else {
-        console.log(`✅ Got embedding with ${result.length} dimensions`)
-        return result
-      }
-    } else {
-      throw new Error(`Unexpected response format: ${JSON.stringify(result)}`)
-    }
   } catch (error: any) {
     console.error('Error:', error.message)
+    throw error
   }
 }
-
-
 async function generateEmbeddings() {
-  console.log('🤖 Starting embedding generation...\n')
+  console.log('Starting embedding generation...\n')
   
   try {
-    // Test API key first
+  
     console.log('🔑 Testing Hugging Face API key...')
     try {
       await getEmbedding('test')
@@ -143,4 +121,4 @@ async function generateEmbeddings() {
   }
 }
 
-generateEmbeddings()
+// generateEmbeddings()

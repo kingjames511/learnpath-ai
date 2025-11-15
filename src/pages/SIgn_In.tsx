@@ -29,15 +29,6 @@ const SignInPage = () => {
       setTimeout(() => navigate(paths.dashbaord), 3000);
     }
   };
-  // const Reset = async (email: string) => {
-  //   const { error } = resetPassword(email);
-  //   if (error) {
-  //     setError("oops something occured");
-  //   } else {
-  //     toast.success("check your email for a reset link");
-  //   }
-  // };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-white p-4">
       <div className="w-full max-w-6xl">

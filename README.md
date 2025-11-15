@@ -94,8 +94,9 @@ recommendations
 - [x] Authentication✅
 
 **Phase 2: Core Features** 🚧 (In Progress)
-- [ ] Onboarding flow
-- [ ] Recommendation engine
+
+- [ ] Onboarding flow✅
+- [ ] Recommendation engine✅
 - [ ] Dashboard
 - [ ] Course management
 

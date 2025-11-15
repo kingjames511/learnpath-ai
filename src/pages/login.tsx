@@ -3,6 +3,7 @@ import illustration from "../assets/undraw_online-test_cqv0.svg";
 import { useAuth } from "../Services/contextApi/AuthContext";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { paths } from "../path";
 
 const SignUpPage = () => {
   const [email, setEmail] = useState("");
@@ -19,24 +20,23 @@ const SignUpPage = () => {
       toast.error("Double-check your email something’s off");
     } else {
       setStep(2);
-      console.log(loading);
     }
   };
 
   const handleConfirm = async () => {
     setLoading(true);
     setError("");
-    const {  error } = await signUp(email, password, {
+    const { error } = await signUp(email, password, {
       full_name: fullName,
     });
     if (error) {
       toast.error("oops something went wrong");
-      setError(error);
+      setError(error.message);
       setLoading(false);
     } else {
       setSucess("Check your email to confirm your account");
       setLoading(false);
-      setTimeout(() => navigate("/login"), 3000);
+      setTimeout(() => navigate(paths.OnBoarding), 3000);
     }
   };
 
