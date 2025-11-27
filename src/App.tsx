@@ -10,6 +10,7 @@ import ForgotPassword from "./pages/ForgettPassword";
 import ResetPassword from "./pages/ResetPassword";
 import Onboarding from "./components/OnBoarding";
 import ProtectedRoute from "./components/ProtectedRooute";
+import { TestEmbedding } from "./components/TestEmbedding";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path={paths.callback} element={<AuthCallback />} />
         <Route path={paths.passwordReset} element={<ForgotPassword />} />
         <Route path={paths.ResetPassword} element={<ResetPassword />} />
+        <Route path="/test-embedding" element={<TestEmbedding />} />
 
         {/* Protected Routes - All under one wrapper */}
         <Route element={<ProtectedRoute />}>

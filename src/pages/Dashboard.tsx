@@ -3,9 +3,11 @@ import { useState } from "react";
 import { Sidebar } from "./sidebar";
 import { DashboardContent } from "./DashHome";
 import { Header } from "./Header";
+import { ProfilePanel } from "./profile";
 const Dashboard = () => {
   const [activeItem, setActiveItem] = useState("dashboard");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
 
   // const getPageTitle = () => {
   //   const item = menuItems.find((item) => item.id === activeItem);
@@ -35,6 +37,15 @@ const Dashboard = () => {
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header onMenuClick={() => setSidebarOpen(true)} title={"home"} />
         <main className="flex-1 overflow-auto">{renderContent()}</main>
+      </div>
+      <div className="hidden lg:block">
+        <ProfilePanel isOpen={true} onClose={() => {}} />
+      </div>
+      <div className="lg:hidden">
+        <ProfilePanel
+          isOpen={profileOpen}
+          onClose={() => setProfileOpen(false)}
+        />
       </div>
     </div>
   );

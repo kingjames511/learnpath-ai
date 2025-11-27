@@ -1,0 +1,22 @@
+
+[functions.huggingface-query]
+enabled = true
+verify_jwt = true
+import_map = "./functions/huggingface-query/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/huggingface-query/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/huggingface-query/*.html" ]
+
+[functions.get-embedding]
+enabled = true
+verify_jwt = false  # Temporarily disabled for testing
+import_map = "./functions/get-embedding/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/get-embedding/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/get-embedding/*.html" ]

@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { fetchYoutubeCourse } from "../../scripts/fetch-youtube-course";
+
 const Home = () => {
   // useEffect(() => {
   //   const get = async () => {

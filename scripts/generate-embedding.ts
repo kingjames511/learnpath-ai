@@ -1,36 +1,8 @@
 import { supabase } from "../src/Services/supabase";
- const HF_API_KEY= import.meta.env.VITE_HF_API_KEY
-
-import { HfInference } from '@huggingface/inference'
-
-// Initialize the client with your API key
-const hf = new HfInference(HF_API_KEY)
-
- export async function getEmbedding(text: string) {
-  try {
-    console.log('Calling Hugging Face API...')
-
-    // Use featureExtraction method - much simpler!
-    const embedding = await hf.featureExtraction({
-      model: 'sentence-transformers/all-MiniLM-L6-v2',
-      inputs: text ? text : 'react'
-    })
-
-    console.log('📦 Response type:', typeof embedding)
-    console.log(`✅ Got embedding with ${embedding.length} dimensions`)
-    
-    return embedding
-
-  } catch (error: any) {
-    console.error('Error:', error.message)
-    throw error
-  }
-}
+import { getEmbedding } from "../src/utlis/getEmbedding";
 async function generateEmbeddings() {
   console.log('Starting embedding generation...\n')
-  
   try {
-  
     console.log('🔑 Testing Hugging Face API key...')
     try {
       await getEmbedding('test')
@@ -120,5 +92,4 @@ async function generateEmbeddings() {
  
   }
 }
-
-// generateEmbeddings()
+console.log(generateEmbeddings())

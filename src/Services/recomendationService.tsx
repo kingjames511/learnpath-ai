@@ -1,6 +1,6 @@
 import { supabase } from "../lib/supabase";
 import type { UserProfile, Course } from "../types/types";
-import { getEmbedding } from "../../scripts/generate-embedding";
+import { getEmbedding } from "../utlis/getEmbedding";
 // rules based fittering
 export async function filterCoursesByRule(
   profile: UserProfile
@@ -171,9 +171,9 @@ export async function searchCourses(
     );
   }
 
-  if (filters?.maxDuration !== undefined) {
-    filtered = filtered.filter((c) => c.duration_hours <= filters.maxDuration);
-  }
+  // if (filters?.maxDuration !== undefined) {
+  //   filtered = filtered.filter((c) => c.duration_hours <= filters.maxDuration);
+  // }
 
   return filtered;
 }

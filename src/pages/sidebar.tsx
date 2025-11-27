@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+
 import {
   LayoutDashboard,
   BookOpen,
@@ -8,7 +8,7 @@ import {
   MessageSquare,
   Settings,
   MoreHorizontal,
-  Menu,
+
   X,
 } from "lucide-react";
 

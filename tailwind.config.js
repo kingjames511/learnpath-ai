@@ -61,4 +61,5 @@ export default {
     extend: {},
   },
   plugins: [],
+   base: '/learnpath-ai/'
 };
