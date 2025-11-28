@@ -35,18 +35,17 @@ const Dashboard = () => {
         onClose={() => setSidebarOpen(false)}
       />
       <div className="flex-1 flex flex-col overflow-hidden">
-        <Header onMenuClick={() => setSidebarOpen(true)} title={"home"} />
+        <Header 
+          onMenuClick={() => setSidebarOpen(true)} 
+          onProfileClick={() => setProfileOpen(!profileOpen)}
+          title={"home"} 
+        />
         <main className="flex-1 overflow-auto">{renderContent()}</main>
       </div>
-      <div className="hidden lg:block">
-        <ProfilePanel isOpen={true} onClose={() => {}} />
-      </div>
-      <div className="lg:hidden">
-        <ProfilePanel
-          isOpen={profileOpen}
-          onClose={() => setProfileOpen(false)}
-        />
-      </div>
+      <ProfilePanel
+        isOpen={profileOpen}
+        onClose={() => setProfileOpen(false)}
+      />
     </div>
   );
 };

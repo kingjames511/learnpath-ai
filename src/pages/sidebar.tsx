@@ -137,7 +137,7 @@ export const Sidebar: React.FC<{
         </div>
 
         {/* Header / Logo */}
-        <div className="p-8 pb-6">
+        <div className="px-8 pt-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-green-600 to-emerald-500  shadow-green-500/30">

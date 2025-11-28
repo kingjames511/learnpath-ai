@@ -4,11 +4,13 @@ import {
   getPersonalizeRecomendation,
   searchCourses,
 } from "../Services/recomendationService";
+import { LoadingComponent } from "../components/LoadingComponent";
 
 export default function TestRecommendations() {
   const { user } = useAuth();
   const [recommendations, setRecommendations] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [progress, setProgress] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
@@ -19,13 +21,25 @@ export default function TestRecommendations() {
     if (!user) return;
 
     setLoading(true);
+    setProgress(0);
+    
+    // Simulate progress
+    const progressInterval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 90) return prev;
+        return prev + 10;
+      });
+    }, 100);
+
     try {
       const recs = await getPersonalizeRecomendation(user.id, 20);
       setRecommendations(recs);
+      setProgress(100);
     } catch (error) {
       console.error("Error loading recommendations:", error);
     } finally {
-      setLoading(false);
+      clearInterval(progressInterval);
+      setTimeout(() => setLoading(false), 400); // Allow animation to complete
     }
   };
 
@@ -33,20 +47,32 @@ export default function TestRecommendations() {
     if (!searchQuery.trim()) return;
 
     setLoading(true);
+    setProgress(0);
+    
+    // Simulate progress
+    const progressInterval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 90) return prev;
+        return prev + 10;
+      });
+    }, 100);
+
     try {
       const results = await searchCourses(searchQuery);
       setRecommendations(results);
+      setProgress(100);
     } catch (error) {
       console.error("Error searching:", error);
     } finally {
-      setLoading(false);
+      clearInterval(progressInterval);
+      setTimeout(() => setLoading(false), 400); // Allow animation to complete
     }
   };
 
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin w-12 h-12 border-4 border-indigo-600 border-t-transparent rounded-full" />
+        <LoadingComponent progress={progress} />
       </div>
     );
   }
