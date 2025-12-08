@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
-import photo from '../assets/sket.svg'
-import photo2 from '../assets/skett.svg'
+
 import ColourfulText from '@/components/ui/colourful-text';
 const HomeText = () => {
   return (
@@ -16,7 +15,7 @@ const HomeText = () => {
           {/* <img src={photo} className='w-full px-4 h-full object-cover -z-10' alt="" /> */}
         </motion.div>
         <motion.h1 
-          className="text-2xl md:text-3xl lg:text-4xl xl:text-6xl font-bold text-white leading-tight mb-8 md:mb-12"
+          className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-8 md:mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
