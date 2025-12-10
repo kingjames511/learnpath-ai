@@ -4,6 +4,7 @@ import { Sidebar } from "./sidebar";
 import { DashboardContent } from "./DashHome";
 import { Header } from "./Header";
 import { ProfilePanel } from "./profile";
+import Course from "./Course";
 const Dashboard = () => {
   const [activeItem, setActiveItem] = useState("dashboard");
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -19,7 +20,7 @@ const Dashboard = () => {
       case "dashboard":
         return <DashboardContent />;
       case "courses":
-        return <TestRecommendations />;
+        return <Course/>;
 
       default:
         return <DashboardContent />;

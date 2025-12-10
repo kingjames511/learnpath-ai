@@ -43,7 +43,7 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section ref={aboutRef} id="about" className=" h-full md:h-[600px] bg-gradient-to-br from-gray-50 to-purple-50 py-12 px-4 sm:px-6 lg:px-8 relative z-20">
+      <section ref={aboutRef} id="about" className=" min-h-screen bg-gradient-to-br from-gray-50 to-purple-50 py-12 px-4 sm:px-6 lg:px-8 relative z-20">
         <div className="max-w-7xl h-full mx-auto">
           <div className="flex flex-col lg:flex-row items-center justify-around h-full ">
             {/* Left Content Section */}

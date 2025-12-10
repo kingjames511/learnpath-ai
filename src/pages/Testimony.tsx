@@ -3,7 +3,7 @@ import student from '../assets/student.png'
 const Testimony: React.FC = () => {
 
   return (
-    <section className="h-[600px]  px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+    <section className="min-h-screen  px-4 sm:px-6 lg:px-8 flex items-center justify-center">
       <div className="max-w-6xl w-full bg-white rounded-3xl  relative overflow-hidden">
         
         {/* Floating Avatar Images - Positioned Around */}

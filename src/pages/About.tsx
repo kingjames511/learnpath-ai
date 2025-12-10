@@ -3,7 +3,7 @@ import { NoiseBackground } from "@/components/ui/noise-background";
 
 const AboutPage: React.FC = () => {
   return (
-    <div className="h-[500px] bg-gradient-to-br from-gray-50 to-purple-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="h-screen bg-gradient-to-br from-gray-50 to-purple-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl h-full bg-red-500  mx-auto">
         <div className=" flex justify-around h-full lg:grid-cols-2 gap-12 items-center">
           

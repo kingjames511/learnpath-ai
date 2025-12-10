@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-
+import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+const navigate = useNavigate()
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -39,7 +39,7 @@ const Navbar = () => {
 
           {/* Buttons - Right (Hidden on mobile) */}
           <div className="hidden md:flex items-center space-x-4 ml-auto">
-             <button className="px-5 py-2  text-white font-medium hover:text-[#a7e629] transition-colors">
+             <button onClick={()=> navigate('/sign-in')} className="px-5 py-2  text-white font-medium hover:text-[#a7e629] transition-colors">
               Login
             </button>
             {/* Animated Button with Shimmer Effect */}
