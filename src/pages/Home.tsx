@@ -1,102 +1,51 @@
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 import HomeProfile from "../components/HomeProfile";
 import HomeText from "../components/HomeText";
 import Navbar from "../components/Navbar";
 import { NoiseBackground } from "@/components/ui/noise-background";
 import Testimony from "./Testimony";
-
-// Register ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
+import { useGSAPScroll } from "../Hook/useGSAPScroll";
 
 const Home = () => {
   const heroRef = useRef<HTMLElement>(null);
   const aboutRef = useRef<HTMLElement>(null);
   const testimonyRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    // Ensure refs are available
-    if (!heroRef.current || !aboutRef.current || !testimonyRef.current) return;
-
-    // Create ScrollTrigger for pinning hero section
-    const pinTrigger = ScrollTrigger.create({
-      trigger: heroRef.current,
-      start: "top top",
-      end: "+=100%",
+  // Use the custom GSAP scroll hook for scroll-triggered animations
+  const sections = [
+    {
+      ref: heroRef,
       pin: true,
       pinSpacing: false,
-      scrub: 1,
-    });
-
-    // Animate about section sliding in
-    gsap.fromTo(
-      aboutRef.current,
-      {
-        y: "100%",
-      },
-      {
-        y: "0%",
-        ease: "none",
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top top",
-          end: "+=100%",
-          scrub: 1,
-        },
-      }
-    );
-
-    // Pin about section and slide in testimony
-    const aboutPinTrigger = ScrollTrigger.create({
-      trigger: aboutRef.current,
-      start: "top top",
-      end: "+=100%",
+    },
+    {
+      ref: aboutRef,
+      slideFrom: "bottom" as const,
       pin: true,
       pinSpacing: false,
-      scrub: 1,
-    });
+    },
+    {
+      ref: testimonyRef,
+      slideFrom: "bottom" as const,
+    },
+  ];
 
-    // Animate testimony section sliding in
-    gsap.fromTo(
-      testimonyRef.current,
-      {
-        y: "100%",
-      },
-      {
-        y: "0%",
-        ease: "none",
-        scrollTrigger: {
-          trigger: aboutRef.current,
-          start: "top top",
-          end: "+=100%",
-          scrub: 1,
-        },
-      }
-    );
-
-    // Cleanup function
-    return () => {
-      pinTrigger.kill();
-      aboutPinTrigger.kill();
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
+  // Use the custom GSAP scroll hook for scroll-triggered animations
+  // useGSAPScroll({ sections });
 
   return (
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
-      <section ref={heroRef} id="home" className="h-screen bg-[#191a2c] relative z-10">
+      <section ref={heroRef} id="home" className="min-h-screen bg-[#191a2c] relative z-10">
         <Navbar />
         <HomeText />
         <HomeProfile />
       </section>
 
       {/* About Section */}
-      <section ref={aboutRef} id="about" className="min-h-screen bg-gradient-to-br from-gray-50 to-purple-50 py-12 px-4 sm:px-6 lg:px-8 relative z-20">
+      <section ref={aboutRef} id="about" className=" h-full md:h-[600px] bg-gradient-to-br from-gray-50 to-purple-50 py-12 px-4 sm:px-6 lg:px-8 relative z-20">
         <div className="max-w-7xl h-full mx-auto">
-          <div className="flex flex-col lg:flex-row items-center justify-around h-full gap-12">
-            
+          <div className="flex flex-col lg:flex-row items-center justify-around h-full ">
             {/* Left Content Section */}
             <div className="space-y-8 lg:w-1/2">
               <div className="space-y-6">
@@ -158,18 +107,18 @@ const Home = () => {
             </div>
             
             {/* Right Image Cards Section */}
-            <div className="w-auto relative bg-transparent h-[500px] lg:w-1/2">
-              <div className="h-[250px] relative rounded-lg w-[200px] bg-[#B8A4E2]">
+            <div className="w-auto relative bg-transparent h-[500px] ">
+              <div className="h-[250px] relative rounded-lg md:w-[200px] w-[150px] bg-[#B8A4E2]">
                 <div className="absolute -left-4 -top-1 w-[50px] h-[50px] bg-gradient-to-br from-gray-50 to-purple-50 rounded-br-full"></div>
               </div>  
-        
-              <div className="relative h-[200px] w-[300px] mt-10 rounded-lg bg-[#AAD7EA]">
+
+              <div className="relative h-[200px]  w-[300px] mt-10 rounded-lg bg-[#AAD7EA]">
                 <div className="absolute w-[150px] top-0 -right-0 flex justify-center items-center p-4 rounded-tl-2xl rounded-bl-2xl h-[50px] bg-gradient-to-br from-gray-50 to-purple-50">
                   <div className="w-full rounded-2xl bg-[#AAD7EA] h-8"></div>
                 </div>
               </div>
 
-              <div className="h-[250px] absolute top-10 left-52 w-[200px] rounded-lg bg-[#87A370]"></div>
+              <div className="h-[250px] absolute top-10 md:left-52 left-40 md:w-[200px] w-[150px] rounded-lg bg-[#87A370]"></div>
             </div>
           </div>
         </div>

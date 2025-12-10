@@ -50,7 +50,7 @@ const HomeProfile = () => {
 
             {/* Quote */}
             <div className="space-y-2 md:ml-24 ">
-              <p className="text-white text-xl w-full max-w-xl md:text-2xl leading-relaxed">
+              <p className="text-white text-2xl w-full max-w-xl md:text-3xl leading-relaxed">
                 "Explore Unlimited Courses That Fit You The Process of Skill Development."
               </p>
               <a 

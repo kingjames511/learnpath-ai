@@ -5,15 +5,6 @@ const HomeText = () => {
   return (
     <section className="w-full flex items-center justify-center px-6 md:px-12 lg:px-20 py-4 md:py-4">
       <div className="max-w-6xl relative mx-auto text-center">
-        {/* Decorative Image - Left */}
-        <motion.div 
-          className='absolute top-28 -left-48 w-24 h-24 bg-transparent'
-          initial={{ x: -200, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.8, ease: 'easeOut' }}
-        >
-          {/* <img src={photo} className='w-full px-4 h-full object-cover -z-10' alt="" /> */}
-        </motion.div>
         <motion.h1 
           className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-8 md:mb-12"
           initial={{ opacity: 0, y: 30 }}
@@ -22,15 +13,7 @@ const HomeText = () => {
         >
           <ColourfulText text="GROW UP" /> YOUR<br/> SKILL <ColourfulText text='IN MINUTES' />
         </motion.h1>
-        {/* Decorative Image - Right */}
-        <motion.div 
-          className='absolute top-20 -right-24 skew-x-12 w-18 h-24 bg-transparent'
-          initial={{ x: 200, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.8, ease: 'easeOut' }}
-        >
-            {/* <img src={photo2} className='w-full px-4 h-full object-cover -z-10' alt="" /> */}
-        </motion.div>
+       
 
         {/* CTA Buttons */}
         <motion.div 

@@ -3,9 +3,9 @@ import { NoiseBackground } from "@/components/ui/noise-background";
 
 const AboutPage: React.FC = () => {
   return (
-    <div className="h-screen bg-gradient-to-br from-gray-50 to-purple-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl h-full mx-auto">
-        <div className=" flex items-center justify-around h-full lg:grid-cols-2 gap-12 items-center">
+    <div className="h-[500px] bg-gradient-to-br from-gray-50 to-purple-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl h-full bg-red-500  mx-auto">
+        <div className=" flex justify-around h-full lg:grid-cols-2 gap-12 items-center">
           
           {/* Left Content Section */}
           <div className="space-y-8">
@@ -82,9 +82,8 @@ const AboutPage: React.FC = () => {
           </div>
 
             </div>
- <div className='h-[250px] absolute top-10 left-52 w-[200px] rounded-lg bg-[#87A370]'>
-
- </div>
+          <div className='h-[250px] absolute top-10 left-52 w-[200px] rounded-lg bg-[#87A370]'>
+          </div>
           </div>
         </div>
       </div>

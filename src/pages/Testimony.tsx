@@ -1,20 +1,37 @@
 import React from 'react';
-
+import student from '../assets/student.png'
 const Testimony: React.FC = () => {
+
   return (
-    <section className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
-      <div className="max-w-6xl w-full bg-white rounded-3xl shadow-2xl p-8 sm:p-12 lg:p-16 relative overflow-hidden">
+    <section className="h-[600px]  px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+      <div className="max-w-6xl w-full bg-white rounded-3xl  relative overflow-hidden">
         
         {/* Floating Avatar Images - Positioned Around */}
-        <div className="absolute top-12 left-8 sm:left-16 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 shadow-lg"></div>
-        <div className="absolute top-20 left-32 sm:left-48 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 shadow-lg"></div>
-        <div className="absolute bottom-32 left-16 sm:left-24 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-green-400 to-green-600 shadow-lg"></div>
-        <div className="absolute top-32 sm:top-40 left-10 sm:left-16 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 shadow-lg"></div>
+        <div className="absolute hidden md:block top-12 left-8 sm:left-16 w-12 h-12 sm:w-14 sm:h-14">
+          <img src={student} alt="student" />
+        </div>
+        <div className="absolute hidden md:block top-20 left-32 sm:left-48 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 shadow-lg">
+           <img src={student} alt="student" />
+        </div>
+        <div className="absolute hidden md:block bottom-32 left-16 sm:left-24 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-green-400 to-green-600 shadow-lg">
+           <img src={student} alt="student" />
+        </div>
+        <div className="absolute hidden md:block top-32 sm:top-40 left-10 sm:left-16 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 shadow-lg">
+           <img src={student} alt="student" />
+        </div>
         
-        <div className="absolute top-12 right-8 sm:right-16 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-indigo-400 to-indigo-600 shadow-lg"></div>
-        <div className="absolute top-32 sm:top-40 right-32 sm:right-48 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-teal-400 to-teal-600 shadow-lg"></div>
-        <div className="absolute bottom-32 right-16 sm:right-24 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 shadow-lg"></div>
-        <div className="absolute top-48 sm:top-56 right-10 sm:right-16 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-rose-400 to-rose-600 shadow-lg"></div>
+        <div className="absolute hidden md:block top-12 right-8 sm:right-16 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-indigo-400 to-indigo-600 shadow-lg">
+           <img src={student} alt="student" />
+        </div>
+        <div className="absolute hidden md:block top-32 sm:top-40 right-32 sm:right-48 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-teal-400 to-teal-600 shadow-lg">
+           <img src={student} alt="student" />
+        </div>
+        <div className="absolute hidden md:block bottom-32 right-16 sm:right-24 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 shadow-lg">
+           <img src={student} alt="student" />
+        </div>
+        <div className="absolute hidden md:block top-48 sm:top-56 right-10 sm:right-16 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-rose-400 to-rose-600 shadow-lg">
+           <img src={student} alt="student" />
+        </div>
 
         {/* Main Content Container */}
         <div className="relative z-10 text-center">
@@ -34,6 +51,7 @@ const Testimony: React.FC = () => {
             
             {/* Large Central Avatar */}
             <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 shadow-2xl mb-6 sm:mb-8 ring-4 ring-white">
+              <img src={student} alt="student" /> 
             </div>
 
             {/* Quote Icon */}
