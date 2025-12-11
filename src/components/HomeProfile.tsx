@@ -54,7 +54,7 @@ const HomeProfile = () => {
                 "Explore Unlimited Courses That Fit You The Process of Skill Development."
               </p>
               <a 
-                href="#" 
+                href="#sign-in" 
                 className="inline-flex items-center gap-2 text-white hover:text-[#a7e629] transition-colors font-medium"
               >
                 LET'S GO <span>→</span>

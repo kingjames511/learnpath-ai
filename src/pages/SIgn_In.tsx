@@ -36,7 +36,7 @@ const SignInPage = () => {
           {/* Left Content */}
           <div className="max-w-md">
             <h1 className="text-4xl font-bold text-black mb-4 leading-tight">
-              Welcome Back Starts Now Grow Faster.
+              Welcome Back <br /> Starts Now, Grow Faster.
             </h1>
 
             <p className="text-base text-gray-600 mb-8 leading-relaxed">
@@ -67,24 +67,21 @@ const SignInPage = () => {
               <button
                 onClick={handleConfirm}
                 disabled={loading}
-                className={`w-full px-8 py-3 bg-purple-600 text-white border-0 rounded-lg text-sm font-semibold cursor-pointer hover:bg-purple-700 transition-colors ${
+                className={`w-full px-8 py-3 bg-[#a7e629] text-black border-0 rounded-lg text-md font-semibold capitalize cursor-pointer hover:bg-[#82b51d] transition-colors ${
                   loading ? "animate-pulse" : ""
                 }`}
               >
                 {loading ? "loading..." : "sign-in"}
               </button>
               {error && (
-                <div
-                  mt-4
-                  className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded"
-                >
+                <div className="mt-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
                   {error}
                 </div>
               )}
             </div>
 
             {/* Terms */}
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-md text-gray-400 leading-relaxed">
               Dont have any account yet !!{" "}
               <a href="/sign-up" className="text-black underline">
                 signUp
@@ -92,7 +89,7 @@ const SignInPage = () => {
               Here
             </p>
 
-            <p className="text-sm text-purple-600 leading-relaxed">
+            <p className="text-md text-gray-600 leading-relaxed">
               Forgotten Password ?
               <a href={paths.passwordReset} className="text-black underline">
                 Reset

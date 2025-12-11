@@ -138,7 +138,12 @@ export default {
     },
   ],
   theme: {
-    extend: {},
+    extend: {
+		  fontFamily: {
+			  'poppins': ['Poppins', 'sans-serif'],
+			'Nato': [ "Noto Sans", 'sans-serif']
+		  },
+	},
   },
   plugins: [],
    base: '/learnpath-ai/'

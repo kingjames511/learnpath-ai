@@ -32,6 +32,7 @@ const SignUpPage = () => {
     if (error) {
       toast.error("oops something went wrong");
       setError(error.message);
+      console.log(error, "this is the error");
       setLoading(false);
     } else {
       setSucess("Check your email to confirm your account");
@@ -107,11 +108,11 @@ const SignUpPage = () => {
                   placeholder="Email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-800 outline-none focus:border-purple-500"
+                  className="flex-1 px-4 py-3 border border-gray-300 rounded-md text-sm text-gray-800 outline-none focus:border-gray-200"
                 />
                 <button
                   onClick={handleSignUp}
-                  className="px-8 py-3 bg-[#6c63ff] text-white border-0 rounded-lg text-sm font-semibold cursor-pointer hover:bg-purple-700 transition-colors"
+                  className="px-8 py-3 bg-[#a7e629] text-black border-0 rounded-md text-md capitalize font-semibold cursor-pointer hover:bg-[#82b51d] transition-colors"
                 >
                   Sign up
                 </button>
@@ -133,12 +134,12 @@ const SignUpPage = () => {
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-800 outline-none focus:border-purple-500 mb-3"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md text-sm text-gray-800 outline-none focus:border-gray-200 mb-3"
                 />
                 <button
                   onClick={handleConfirm}
                   disabled={loading}
-                  className={`w-full px-8 py-3 bg-purple-600 text-white border-0 rounded-lg text-sm font-semibold cursor-pointer hover:bg-purple-700 transition-colors ${
+                  className={`w-full px-8 py-3 bg-[#a7e629] text-black border-0 rounded-md text-md font-semibold cursor-pointer capitalize hover:bg-[#82b51d] transition-colors ${
                     loading ? "animate-pulse" : ""
                   }`}
                 >
@@ -159,7 +160,7 @@ const SignUpPage = () => {
             )}
 
             {/* Terms */}
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-md text-gray-400 leading-relaxed">
               By signing up, you agree to the{" "}
               <a href="#" className="text-black underline">
                 Terms of use

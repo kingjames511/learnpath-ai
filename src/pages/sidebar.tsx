@@ -140,11 +140,11 @@ export const Sidebar: React.FC<{
         <div className="px-8 pt-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-green-600 to-emerald-500  shadow-green-500/30">
-                <span className="text-white font-bold text-lg">D</span>
+              <div className="relative flex items-center justify-center w-10 h-10 -skew-x-12 bg-[#a7e629]">
+                <span className="text-white font-bold text-xl">D</span>
               </div>
               <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
-                Dali Learn
+               Dev Learn
               </span>
             </div>
             
@@ -179,7 +179,7 @@ export const Sidebar: React.FC<{
                 {isActive && (
                   <motion.div
                     layoutId="active-bg"
-                    className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg"
+                    className="absolute inset-0 bg-[#a7e629] rounded-lg"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}

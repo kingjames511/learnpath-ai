@@ -127,7 +127,9 @@ export async function getPersonalizeRecomendation(
 
   const scoredCourses = await scoreCoursesForUser(filteredCourses, profile);
 
-  const interestQuerry = profile?.interests?.join(" ");
+  const interestQuerry = profile?.interests?.length > 0 
+    ? profile.interests.join(" ") 
+    : "popular courses technology design";
 
   const semanticMatches = await getSemanticRecommendations(interestQuerry, 10);
 

@@ -26,9 +26,6 @@ const navigate = useNavigate()
             <a href="#home" className="text-white hover:text-[#a7e629] font-medium transition-colors">
               Home
             </a>
-            <a href="#about" className="text-white hover:text-[#a7e629] font-medium transition-colors">
-              About
-            </a>
             <a href="#courses" className="text-white hover:text-[#a7e629] font-medium transition-colors">
               Courses
             </a>
@@ -43,7 +40,7 @@ const navigate = useNavigate()
               Login
             </button>
             {/* Animated Button with Shimmer Effect */}
-            <button className="relative px-4 py-2 text-black bg-[#a7e629] rounded-full capitalize font-semibold hover:bg-white transition-colors overflow-hidden">
+            <button onClick={() => navigate('/sign-up')} className="relative px-4 py-2 text-black bg-[#a7e629] rounded-full capitalize font-semibold hover:bg-white transition-colors overflow-hidden">
               <span className="relative z-10">start for free</span>
               {/* Animated Shimmer Overlay */}
               <motion.div

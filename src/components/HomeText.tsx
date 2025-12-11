@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
-
+import { useNavigate } from 'react-router-dom';
 import ColourfulText from '@/components/ui/colourful-text';
 const HomeText = () => {
+const navigate = useNavigate()
   return (
     <section className="w-full flex items-center justify-center px-6 md:px-12 lg:px-20 py-4 md:py-4">
       <div className="max-w-6xl relative mx-auto text-center">
@@ -23,7 +24,7 @@ const HomeText = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           {/* Get Started Button with Shimmer */}
-          <button className="relative px-8 md:px-10 py-2 md:py-2 text-black bg-[#a7e629] rounded-full font-semibold text-base md:text-lg hover:bg-white transition-colors overflow-hidden">
+          <button onClick={() => navigate('sign-in')} className="relative px-8 md:px-10 py-2 md:py-2 text-black bg-[#a7e629] rounded-full font-semibold text-base md:text-lg hover:bg-white transition-colors overflow-hidden">
             <span className="relative z-10">Get Started</span>
             {/* Animated Shimmer Overlay */}
             <motion.div
@@ -41,7 +42,7 @@ const HomeText = () => {
 
           {/* Try for Free Link */}
           <a 
-            href="#" 
+            href="#/sign-in" 
             className="text-white font-medium text-base md:text-lg hover:text-[#a7e629] transition-colors underline underline-offset-4"
           >
             Try for free
