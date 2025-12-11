@@ -97,11 +97,11 @@ recommendations
 
 - [ ] Onboarding flow✅
 - [ ] Recommendation engine✅
-- [ ] Dashboard
-- [ ] Course management
+- [ ] Dashboard✅
+- [ ] Course management✅
 
 **Phase 3: AI Integration** 📅 (Planned)
-- [ ] Semantic search
+- [ ] Semantic search✅
 - [ ] AI explanations
 - [ ] Chat assistant
 
