@@ -111,8 +111,7 @@ recommendations
 - [ ] Achievements system
 
 ## 🎨 Screenshots
-
-_Coming soon..._
+![landing page](https://github.com/kingjames511/learnpath-ai/issues/1#issue-3720154634)
 
 ## 🚀 Getting Started
 
