@@ -97,11 +97,11 @@ recommendations
 
 - [ ] Onboarding flow✅
 - [ ] Recommendation engine✅
-- [ ] Dashboard
-- [ ] Course management
+- [ ] Dashboard✅
+- [ ] Course management✅
 
 **Phase 3: AI Integration** 📅 (Planned)
-- [ ] Semantic search
+- [ ] Semantic search✅
 - [ ] AI explanations
 - [ ] Chat assistant
 
@@ -111,8 +111,7 @@ recommendations
 - [ ] Achievements system
 
 ## 🎨 Screenshots
-
-_Coming soon..._
+![landing page](https://github.com/kingjames511/learnpath-ai/issues/1#issue-3720154634)
 
 ## 🚀 Getting Started
 
