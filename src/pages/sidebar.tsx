@@ -13,6 +13,9 @@ import {
   LogOut,
 } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
+import { useAuth } from "../Services/contextApi/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { paths } from "../path";
 
 interface MenuItem {
   id: string;
@@ -95,6 +98,25 @@ export const Sidebar: React.FC<{
     if (!isDesktop) {
       onClose();
     }
+  };
+
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await signOut();
+    navigate(paths.signIn);
+  };
+
+  // Get user initials
+  const getInitials = () => {
+    if (!user?.user_metadata?.full_name) return "U";
+    return user.user_metadata.full_name
+      .split(" ")
+      .map((n: string) => n[0])
+      .join("")
+      .toUpperCase()
+      .slice(0, 2);
   };
 
   return (
@@ -217,22 +239,30 @@ export const Sidebar: React.FC<{
         {/* User Profile Section */}
         <div className="p-4 m-4 mt-auto rounded-lg bg-white/50 border border-white/40 shadow-sm backdrop-blur-md">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 p-[2px]">
+            <div className="w-10 h-10 rounded-full bg-[#a7e629] p-[2px]">
               <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
-                 <span className="text-sm font-bold text-indigo-600">RF</span>
-                 {/* <img src="..." alt="User" /> */}
+                  <span className="text-sm font-bold text-[#a7e629]">
+                   {getInitials()}
+                 </span>
               </div>
             </div>
             <div className="flex-1 min-w-0">
-              <h4 className="text-sm font-bold text-gray-900 truncate">Robert Fox</h4>
-              <p className="text-xs text-gray-500 truncate">@robertfox</p>
+              <h4 className="text-sm font-bold text-gray-900 truncate">
+                {user?.user_metadata?.full_name || "User"}
+              </h4>
+              <p className="text-xs text-gray-500 truncate">
+                {user?.email || ""}
+              </p>
             </div>
             <button className="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
               <MoreHorizontal size={18} />
             </button>
           </div>
           
-          <button className="w-full flex items-center justify-center gap-2 py-2.5 text-sm font-medium text-red-600 hover:text-red-700 hover:bg-red-50 rounded-xl transition-all duration-200 group">
+          <button 
+            onClick={handleLogout}
+            className="w-full flex items-center justify-center gap-2 py-2.5 text-sm font-medium text-red-600 hover:text-red-700 hover:bg-red-50 rounded-xl transition-all duration-200 group"
+          >
             <LogOut size={18} className="group-hover:-translate-x-1 transition-transform" />
             <span>Log out</span>
           </button>

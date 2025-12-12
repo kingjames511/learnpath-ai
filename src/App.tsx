@@ -11,6 +11,7 @@ import ResetPassword from "./pages/ResetPassword";
 import Onboarding from "./components/OnBoarding";
 import ProtectedRoute from "./components/ProtectedRooute";
 import { TestEmbedding } from "./components/TestEmbedding";
+import { GenerateEmbeddings } from "./components/GenerateEmbeddings";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
         <Route path={paths.passwordReset} element={<ForgotPassword />} />
         <Route path={paths.ResetPassword} element={<ResetPassword />} />
         <Route path="/test-embedding" element={<TestEmbedding />} />
+        <Route path="/generate-embeddings" element={<GenerateEmbeddings />} />
 
         {/* Protected Routes - All under one wrapper */}
         <Route element={<ProtectedRoute />}>

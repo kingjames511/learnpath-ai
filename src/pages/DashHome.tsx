@@ -7,7 +7,6 @@ import {
   Plus, 
   Trash2, 
   Edit2, 
-  CheckSquare, 
   Square, 
   X,
   TrendingUp,

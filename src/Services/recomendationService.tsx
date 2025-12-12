@@ -90,12 +90,26 @@ export async function getSemanticRecommendations(
 
   const { data, error } = await supabase.rpc("match_courses", {
     query_embedding: embeddingText,
-    match_threshold: 0.7,
+    match_threshold: 0.5,
     match_count: limit,
   });
 
   if (error) throw new Error(error.message);
-  return data || [];
+
+  // Deduplicate results by ID and Title (keeping the first/best match)
+  const seenIds = new Set();
+  const seenTitles = new Set();
+  const uniqueData: Course[] = [];
+
+  for (const course of data || []) {
+    if (!seenIds.has(course.id) && !seenTitles.has(course.title)) {
+      seenIds.add(course.id);
+      seenTitles.add(course.title);
+      uniqueData.push(course);
+    }
+  }
+
+  return uniqueData;
 }
 
 export async function getPersonalizeRecomendation(
@@ -142,7 +156,21 @@ export async function getPersonalizeRecomendation(
       combined.push({ ...semCourse, score: 50 });
     }
   });
-  return combined.slice(0, limit);
+
+  // Final deduplication by ID and Title (keeping the first/best match)
+  const seenIds = new Set();
+  const seenTitles = new Set();
+  const uniqueCombined: Course[] = [];
+
+  for (const course of combined) {
+    if (!seenIds.has(course.id) && !seenTitles.has(course.title)) {
+      seenIds.add(course.id);
+      seenTitles.add(course.title);
+      uniqueCombined.push(course);
+    }
+  }
+
+  return uniqueCombined.slice(0, limit);
 }
 export async function searchCourses(
   searchQuery: string,
@@ -177,5 +205,18 @@ export async function searchCourses(
   //   filtered = filtered.filter((c) => c.duration_hours <= filters.maxDuration);
   // }
 
-  return filtered;
+  // Deduplicate results by ID and Title (keeping the first/best match)
+  const seenIds = new Set();
+  const seenTitles = new Set();
+  const uniqueResults: Course[] = [];
+
+  for (const course of filtered) {
+    if (!seenIds.has(course.id) && !seenTitles.has(course.title)) {
+      seenIds.add(course.id);
+      seenTitles.add(course.title);
+      uniqueResults.push(course);
+    }
+  }
+
+  return uniqueResults;
 }
